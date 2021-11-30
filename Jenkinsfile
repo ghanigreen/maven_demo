@@ -22,8 +22,10 @@ stage("archiveartifacts")
 {
 archiveArtifacts '**/*.war'
 }
+/*
 stage("Deployment")
 {
 deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://localhost:9090/')], contextPath: 'gamepipeline', war: '**\\*.war'
 }
+*/
 }
