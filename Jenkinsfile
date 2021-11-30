@@ -9,11 +9,12 @@ bat 'mvn test'
 stage("build"){
 bat 'mvn verify'
 }
-
+/*
 stage("sonarqube")
 {
 bat 'mvn sonar:sonar'
 }
+*/
 stage("testresults")
 {
 junit '**/gameoflife-core/target/surefire-reports/*.xml'
