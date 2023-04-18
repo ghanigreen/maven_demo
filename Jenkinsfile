@@ -1,19 +1,14 @@
 node {
-stage("scm"){
-git 'https://github.com/ghanigreen/maven_demo.git'
-}
-stage("unittest"){
-sh 'mvn test'
-}
-stage("build"){
-sh 'mvn verify'
-}
-stage("sonarqube")
-sh 'mvn sonar:sonar'
-stage("testresults")
-junit '**/gameoflife-core/target/surefire-reports/*.xml'
-stage("archiveartifacts")
-archiveArtifacts '**/*.war'
-stage("Deployment")
-sh label: '', script: 'cp -R /var/lib/jenkins/workspace/anitha_pipeline/gameoflife-web/target/gameoflife.war /opt/tomcat/apache-tomcat-9.0.17/webapps/'
+    stage ('git')
+    {
+    git 'https://github.com/ghanitutorsbot/maven_demo.git'
+    }
+    stage ('build')
+    {
+    bat 'mvn install'
+    }
+    stage ('deploy')
+    {
+    deploy adapters: [tomcat9(credentialsId: '19d15899-b120-4d8b-a8f9-999f33ed58d4', path: '', url: 'http://localhost:8081/')], contextPath: 'scriptedscmapp', war: '**/*.war'
+    }
 }

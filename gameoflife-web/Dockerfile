@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8
+FROM tomcat:10.0.26-jdk11-temurin-jammy
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
