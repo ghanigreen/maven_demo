@@ -9,7 +9,7 @@ variables:
   azureSubscription: 'b1fd5043-744d-494c-8b7a-e5844d62a49f'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImage: myagent
 
 stages:
 - stage: Build
