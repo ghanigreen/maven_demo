@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: myagent
+  name: myagent
 
 steps:
 - task: Maven@3
